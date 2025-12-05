@@ -1,0 +1,27 @@
+# Virtual environments
+venv/
+.venv/
+env/
+cuda/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Installed libraries
+site-packages/
+*.dylib
+*.so
+
+# Model weights / checkpoints
+*.bin
+*.pt
+*.safetensors
+
+# Large data
+data/
+datasets/
+logs/
+
+# OS files
+.DS_Store
