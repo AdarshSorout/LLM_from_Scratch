@@ -1,34 +1,92 @@
-# FreeCodeCamp - Building LLMs from Scratch
+ ## Building a Large Language Model (LLM) From Scratch
 
-## Google Colab for those who don't have a GPU: https://colab.research.google.com/drive/1_7TNpEEl8xjHlr9JzKbK5AuDKXwAkHqj?usp=sharing
+A hands-on end-to-end implementation of transformers, tokenizers, training loops, and dataset preparation.
 
-Dependencies (assuming windows): `pip install pylzma numpy ipykernel jupyter torch --index-url https://download.pytorch.org/whl/cu118`
+This project demonstrates how a modern Large Language Model works internally, by building every core component from scratch using Python + PyTorch.
+It is designed both for learning and for interview demonstration.
+## Features
 
-If you don't have an NVIDIA GPU, then the `device` parameter will default to `'cpu'` since `device = 'cuda' if torch.cuda.is_available() else 'cpu'`. If device is defaulting to `'cpu'` that is fine, you will just experience slower runtimes.
+✔ Custom Byte-Pair Encoding (BPE) tokenizer
+✔ Transformer architecture built from scratch
+✔ Multi-Head Self-Attention implementation
+✔ Positional embeddings
+✔ Causal language modeling
+✔ End-to-end training on OpenWebText or a small custom dataset
+✔ CPU/GPU compatibility
+✔ Jupyter notebook training pipeline
 
-## All the links you should need are in this repo. I will add detailed explanations as questions and issues are posted.
+This project is a fully hands-on implementation of the core building blocks of modern LLMs.
+I did everything from scratch, without relying on HuggingFace or any high-level APIs.
 
-## Visual Studio 2022 (for lzma compression algo) - https://visualstudio.microsoft.com/downloads/
+Here is what I personally built:
 
-## OpenWebText Download
-- https://skylion007.github.io/OpenWebTextCorpus/
-- if this doesn't work, default to the wizard of oz mini dataset for training / validation
+## 1. Custom Tokenizer (BPE)
 
-## Socials
-Twitter / X - https://twitter.com/elliotarledge
+Implemented Byte Pair Encoding manually
 
-My YouTube Channel - https://www.youtube.com/channel/UCjlt_l6MIdxi4KoxuMjhYxg
+Generated vocabulary from text corpus
 
-How to SSH from Mac to Windows - https://www.youtube.com/watch?v=7hBeAb6WyIg&t=
+Created encode/decode pipelines
 
-How to Setup Jupyter Notebooks in 5 minutes or less - https://www.youtube.com/watch?v=eLmweqU5VBA&t=
+Handled unknown tokens, merges, and special tokens
 
-Linkedin - https://www.linkedin.com/in/elliot-arledge-a392b7243/
+## 2. Complete Transformer Architecture
 
-Join My Discord Server - https://discord.gg/pV7ByF9VNm
+I implemented the full transformer decoder stack:
 
-Schedule a 1-on-1: https://calendly.com/elliot-ayxc/60min
+Scaled Dot-Product Attention
 
+Multi-Head Self Attention
+
+Positional Embeddings
+
+Residual Connections
+
+Layer Normalization
+
+Feedforward MLP block
+
+Causal masking for next-token prediction
+
+No shortcuts. Everything implemented line-by-line.
+
+## 3. Dataset Pipeline
+
+Downloaded and prepared OpenWebText (or mini dataset)
+
+Cleaned and chunked data
+
+Created PyTorch dataset + dataloader
+
+Built train/val split logic
+
+## 4. Training Loop (Full LM Training)
+
+Wrote a custom training loop (AdamW optimizer, LR scheduling)
+
+Implemented batching, gradient clipping
+
+Perplexity tracking
+
+GPU/CPU autodetection
+
+Model saving + checkpointing
+
+## 5. Text Generation Engine
+
+Temperature sampling
+
+Top-K sampling
+
+Greedy decoding
+
+Prompt feeding
+
+Auto-regressive next-token generation
+
+🚀 Result:
+
+A working, fully custom LLM pipeline capable of training from text and generating text.
 ## Research Papers:
 Attention is All You Need - https://arxiv.org/pdf/1706.03762.pdf
 
